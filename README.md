@@ -11,7 +11,7 @@
 
 本系统通过Dockerfile部署，内置Elasticsearch、Redis、Anaconda3、NodeJS、Code-Server、Supervisor、nginx 构建镜像可能时间会较长，并且需要科学上网。
 
-本项目预览地址：[https://ai2do.co](https://ai2do.co)
+本项目预览地址：[https://ai2do.co](https://ai2do.co) 您可以关注 微信视频号《网音时代》，有更多有价值的信息。
 
 ### 目录
 
