@@ -1,0 +1,26 @@
+# 集群名称（可任意）
+cluster.name: single-node-cluster
+
+# 当前节点名称（可任意）
+node.name: node-1
+
+# 单节点模式关键设置
+discovery.type: single-node
+
+# 监听所有网络（容器部署时用）
+network.host: 0.0.0.0
+http.port: 9200
+
+# 数据和日志路径（可按需挂载）
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+
+# 关闭安全认证（默认8.x开启了安全）
+xpack.security.enabled: false
+xpack.security.enrollment.enabled: false
+xpack.security.transport.ssl.enabled: false
+xpack.security.http.ssl.enabled: false
+
+# 开启跨域访问（若 Web 使用）
+http.cors.enabled: true
+http.cors.allow-origin: "*"

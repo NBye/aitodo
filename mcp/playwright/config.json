@@ -1,0 +1,14 @@
+{
+    "icon": "https://avatars.githubusercontent.com/u/6154722?v=4",
+    "name": "Playwright",
+    "description": "Playwright MCP server",
+    "tags": ["Playwright", "browser"],
+    "author": "microsoft",
+    "link": "https://github.com/microsoft/playwright-mcp",
+    "command": "npx",
+    "args": [
+        "@playwright/mcp@latest"
+    ],
+    "env": {
+    }
+}

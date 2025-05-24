@@ -1,0 +1,18 @@
+{
+    "icon": "https://static.ic6.co/icon/logo/2.png",
+    "name": "彩圈红单",
+    "author": "Caiquan",
+    "description": "彩圈红单是，竞彩被单专家赛事分析推荐平台。",
+    "tags": [
+        "足球","北单"
+    ],
+    "link": "https://experts-h5-prod.ic6.co/",
+    "command": "python",
+    "args": [
+        "main.py"
+    ],
+    "env": {
+        "SPORTS_ACCOUNT_ID": "彩圈账号ID",
+        "SPORTS_SECRET_KEY": "彩圈密钥key"
+    }
+}

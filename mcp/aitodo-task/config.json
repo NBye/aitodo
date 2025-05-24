@@ -1,0 +1,18 @@
+{
+    "icon": "https://ai2do.co/logo/logo1.png",
+    "name": "AiTodo-Task",
+    "author": "NBye",
+    "description": "网音·AiTodo 任务服务，智能体可以在对话过程中,根据需求进行任务设置。",
+    "tags": [
+        "Task"
+    ],
+    "link": "",
+    "command": "python",
+    "args": [
+        "main.py"
+    ],
+    "env": {
+        "AITODO_APIKEY": "AiTodo Api Key",
+        "AITODO_HOST": "http://127.0.0.1:6100"
+    }
+}

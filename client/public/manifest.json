@@ -1,0 +1,20 @@
+{
+    "dir": "ltr",
+    "orientation": "any",
+    "name": "网音·AiTodo",
+    "short_name": "AiTodo",
+    "description": "AI智能体的雇佣管理平台，让AI为您打工，让每个人都是老板",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#f0f0f1",
+    "lang": "zh",
+    "icons": [
+        {
+            "src": "/logo/logo1.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

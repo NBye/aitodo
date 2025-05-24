@@ -1,0 +1,250 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+
+    .vditor-reset p {
+        margin-bottom: 14px;
+    }
+
+    .introduction {
+        img {
+            max-width: 100%;
+        }
+    }
+}
+a {
+    color: var(--ant-color-link);
+    text-decoration: none;
+}
+line {
+    display: block;
+    text-align: left;
+    height: 1px;
+    line-height: 1px;
+    background: #fff;
+    margin: 2rem 0 0.5rem 0;
+    padding: 0 0 0 0.5rem;
+    b {
+        padding: 0 0.5rem;
+        background: #f5f5f5;
+        border-radius: 5px;
+    }
+}
+/* 滚动条整体宽度或高度 */
+::-webkit-scrollbar {
+    width: 7px; /* 垂直滚动条宽度 */
+    height: 7px; /* 水平滚动条高度 */
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    background: #ccc; /* 滑块颜色 */
+    border-radius: 7px; /* 圆角 */
+    border: 2px solid transparent; /* 添加空隙 */
+    background-clip: padding-box; /* 确保透明边框效果 */
+}
+/* 滚动条滑块在悬停时 */
+::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+}
+.think {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    > div {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        color: #666;
+        p {
+            margin: 0;
+            line-height: 1.4rem;
+        }
+    }
+    &:hover {
+        > div {
+            -webkit-line-clamp: none;
+        }
+    }
+}
+#app {
+    width: 100%;
+    height: 100%;
+}
+.no-select {
+    user-select: none; /* 标准语法 */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* 旧版本的 WebKit 浏览器 */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+.hand {
+    cursor: pointer;
+}
+.tac {
+    text-align: center;
+}
+.tal {
+    text-align: left;
+}
+.tar {
+    text-align: right;
+}
+.pr {
+    position: relative;
+}
+.mla {
+    margin-left: auto;
+}
+.w100 {
+    width: 100%;
+}
+.h100 {
+    height: 100%;
+}
+.round {
+    border-radius: 50%;
+    flex: 0 0 auto;
+}
+.gray {
+    filter: grayscale(100%);
+}
+.c-screen {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.c-confirm {
+    padding: 0rem 30px 0.6rem 0rem;
+    .c-item {
+        .c-label {
+            padding: 0.5rem 0;
+        }
+        .c-input {
+            input {
+                width: 100%;
+                height: 2.6rem;
+                border-radius: 0.5rem;
+                padding: 0 0.5rem;
+            }
+        }
+    }
+}
+.c-container {
+    background: rgb(246, 246, 247);
+    .c-list {
+        background: rgb(246, 246, 247);
+        display: flex;
+        width: 300px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        background: rgb(240, 240, 241);
+        flex-direction: column;
+        border-right: solid 1px #ddd;
+    }
+    .c-body {
+        background: rgb(246, 246, 247);
+        display: flex;
+        flex: 1; /* 自动占据剩余空间 */
+        flex-direction: column;
+        .c-scoll {
+            background: #fff;
+        }
+    }
+
+    .c-head {
+        display: flex;
+        flex-shrink: 0;
+        flex-grow: 0;
+        height: 60px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1rem;
+        gap: 0.5rem;
+
+        &.c-left {
+            justify-content: flex-start;
+        }
+        &.c-line {
+            border-bottom: solid 0.1px #d5d5d5;
+        }
+
+        .c-title {
+            @extend .no-select;
+            font-size: 1.2rem;
+        }
+        .c-options {
+            @extend .no-select;
+            margin-left: auto;
+            gap: 0.5rem;
+            display: flex;
+            .iconfont {
+                font-size: 22px;
+                display: flex;
+                height: 30px;
+                width: 30px;
+                max-height: 30px;
+                max-width: 30px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                &:hover {
+                    background: #eee;
+                }
+            }
+        }
+    }
+    .c-scoll {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        flex-shrink: 0;
+        flex-grow: 1;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .c-pd {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .c-wd {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .c-form {
+        min-width: 340px;
+        max-width: 710px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.c-id {
+    text-align: right;
+    width: 100%;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.ant-descriptions-item-content {
+    max-width: 100%;
+}
+
+.html {
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+}

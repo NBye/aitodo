@@ -1,0 +1,85 @@
+#app {
+    .console {
+        .c-menu {
+            display: none;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+        }
+        .c-left {
+            .c-menu {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    .is-mobile.console {
+        width: 100vw;
+        position: relative;
+        overflow: hidden;
+        .c-head {
+            .c-menu {
+                display: flex;
+            }
+        }
+        .c-navbar {
+            padding-right: 20%;
+            background-image: linear-gradient(to right, var(--ant-color-primary) 80%, rgba(0, 0, 0, 0.2) 20%);
+            align-items: flex-start;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: -100vw;
+            &.show {
+                left: 0;
+            }
+
+            .c-head {
+                justify-content: flex-start;
+                padding: 0 0.7rem;
+                width: 100%;
+            }
+
+            .list {
+                width: 100%;
+                align-items: flex-start;
+                .nav {
+                    width: 100%;
+                    .pd {
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        padding: 0 0.5rem;
+                        .title {
+                            padding-left: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .c-container {
+            // width: 100vw;
+            // height: 100vh;
+        }
+        .c-list {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .c-body {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            right: -100vw;
+            z-index: 10;
+
+            &.show {
+                right: 0;
+            }
+        }
+    }
+}

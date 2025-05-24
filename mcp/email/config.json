@@ -1,0 +1,21 @@
+{
+    "icon": "https://netsound.oss-cn-beijing.aliyuncs.com/other/email.png",
+    "name": "Email",
+    "author": "NBye",
+    "description": "邮件管理，代发邮件，查看邮件。",
+    "tags": [
+        "email"
+    ],
+    "link": "",
+    "command": "python",
+    "args": [
+        "main.py"
+    ],
+    "env": {
+        "USERLABEL": "用户昵称",
+        "USERNAME": "用户名",
+        "PASSWORD": "登陆密码",
+        "HOST_SMTP": "SMTP地址",
+        "HOST_PORT": "SMTP host 地址"
+    }
+}

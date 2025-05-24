@@ -1,0 +1,63 @@
+.am {
+    transition-timing-function: cubic-bezier(0.42, 0.15, 0.5, 0.9);
+    transition-duration: 0.6s;
+    transform: translate3d(0, 0, 0) translateZ(0);
+    -webkit-transition-timing-function: cubic-bezier(0.42, 0.15, 0.5, 0.9);
+    -webkit-transition-duration: 0.6s;
+    -webkit-transform: translate3d(0, 0, 0) translateZ(0);
+}
+.am.slow {
+    transition-duration: 1.2s;
+}
+.am.fast {
+    transition-duration: 0.3s;
+}
+.am.faster {
+    transition-duration: 150ms;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0.1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate_animation {
+    transform-origin: center center;
+    animation: rotate 2s linear infinite;
+}
+.rotate_animation.faster {
+    animation: rotate .2s linear infinite;
+}
+
+.icon-loading.run {
+    @extend .rotate_animation;
+}
+
+.iconfont.hover {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        background: #eee;
+    }
+}

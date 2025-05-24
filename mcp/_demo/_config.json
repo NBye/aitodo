@@ -1,0 +1,19 @@
+{
+    "icon": "图标地址",
+    "name": "MCP名称",
+    "author": "作者",
+    "description": "MCP服务描述",
+    "tags": [
+        "tag1",
+        "tag2",
+        "tag..."
+    ],
+    "link": "MCP文档地址或官网地址",
+    "command": "python 命令",
+    "args": [
+        "mcp/目录名/main.py 注意，这里代码文件路径前缀，或使用完整路径。"
+    ],
+    "env": {
+        
+    }
+}

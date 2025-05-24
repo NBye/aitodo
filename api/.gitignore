@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+
+nohup.out
+.flaskenv
+logs
+cache
+build

@@ -1,0 +1,19 @@
+{
+    "icon": "https://r2.trys.ai/imgs/2o0lb5g7r-1742872465843.png",
+    "name": "Baidu Map",
+    "author": "baidu-maps",
+    "description": "百度地图核心API现已全面兼容MCP协议，是国内首家兼容MCP协议的地图服务商。",
+    "tags": [
+        "baidu",
+        "maps"
+    ],
+    "link": "https://lbsyun.baidu.com/faq/api?title=mcpserver/base",
+    "command": "npx",
+    "args": [
+        "-y",
+        "@baidumap/mcp-server-baidu-map"
+    ],
+    "env": {
+        "BAIDU_MAP_API_KEY": "百度地图开放平台ApiKey"
+    }
+}

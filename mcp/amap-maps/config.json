@@ -1,0 +1,13 @@
+{
+    "icon": "https://r2.trys.ai/imgs/zbu4ptrd-1742910186713.png",
+    "name": "Amap Maps",
+    "description": "高德地图官方 MCP Server",
+    "tags": ["amap", "maps"],
+    "author": "amap",
+    "link": "https://lbs.amap.com/api/mcp-server/summary",
+    "command": "npx",
+    "args": ["-y", "@amap/amap-maps-mcp-server"],
+    "env": {
+        "AMAP_MAPS_API_KEY": "您在高德官网上申请的key"
+    }
+}
