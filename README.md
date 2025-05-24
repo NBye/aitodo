@@ -164,7 +164,7 @@ docker run -d `
 docker exec aitodo bash -c "cd /aitodo/client && yarn" 
 ```
 
-### 2.5 检查服务
+#### 2.5 检查服务
 
 2.5.1 检查 supervisor 是否正常
 
