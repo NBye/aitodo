@@ -155,7 +155,12 @@ docker run -d `
    -v ${PWD}/data/elasticsearch.yml:/etc/elasticsearch/elasticsearch.yml `
    --name aitodo aitodo-docker
 ```
-   
+
+容器启动成功后，为client 源码安装依赖。
+```shell
+docker exec aitodo bash -c "cd /aitodo/client && yarn" 
+```
+
 ### 3.4 检查服务
 
 3.4.1 检查 supervisor 是否正常
