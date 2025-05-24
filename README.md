@@ -20,7 +20,8 @@
    - 2.1 构建镜像
    - 2.2 修改环境变量
    - 2.3 启动容器
-   - 2.4 检查服务
+   - 2.4 安装依赖包
+   - 2.5 检查服务
 3. 开始使用
    - 无法登录？
    - 配置密钥
@@ -156,30 +157,32 @@ docker run -d `
    --name aitodo aitodo-docker
 ```
 
+#### 2.4 安装依赖包
+
 容器启动成功后，为client 源码安装依赖。
 ```shell
 docker exec aitodo bash -c "cd /aitodo/client && yarn" 
 ```
 
-### 3.4 检查服务
+### 2.5 检查服务
 
-3.4.1 检查 supervisor 是否正常
+2.5.1 检查 supervisor 是否正常
 
     浏览器打开: http://localhost:9001/，是否显示
 <img style="height:200px" src="https://netsound.oss-cn-beijing.aliyuncs.com/aitodo/poster/supervisor.png">
 
-3.4.2 检查 Elasticsearch 是否正常
+2.5.2 检查 Elasticsearch 是否正常
     
     浏览器打开：http://localhost:9200/ 是否正常显示。
     ES 启动相对较慢，如果supervisor显示ES已启动，可以等3分钟。
 <img style="height:200px" src="https://netsound.oss-cn-beijing.aliyuncs.com/aitodo/poster/es.png">
     
 
-3.4.3 检查 API 是否正常
+2.5.3 检查 API 是否正常
     
     浏览器打开：http://localhost:6100/ 是否显示 ok !
 
-3.4.4 检查客户端是否正常
+2.5.4 检查客户端是否正常
 
     浏览器打开：http://localhost:6200/ 是否显示正常
 <img style="height:200px" src="https://netsound.oss-cn-beijing.aliyuncs.com/aitodo/poster/index.png">
