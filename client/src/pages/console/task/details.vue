@@ -22,7 +22,8 @@ export default {
             handler() {
                 this.loadInfo();
                 this.loadChats();
-                this.PAGESHOW          = true;
+                this.PAGESHOW           = true;
+                this.chat_activeKey     = [];
             },
             immediate: true, // 如果需要在组件加载时立即触发
         },
