@@ -8,6 +8,7 @@
 
     测试账号：tester@netsound.co
     测试密码：111111
+    注意：该账号为系统登陆的体验用户账号。
 
 本系统通过Dockerfile部署，内置Elasticsearch、Redis、Anaconda3、NodeJS、Code-Server、Supervisor、nginx 构建镜像可能时间会较长，并且需要科学上网。
 
@@ -84,17 +85,17 @@ docker build --no-cache -t aitodo-docker .
 vim data/supervisor/aitodo.conf
 # 修改 environment 项目的值
 
-# ES数据库必填
+## ES数据库(必填)
 # ES_CONNECT_SETTING_HOST="http://localhost:9200，ES数据库链接地址，docker默认创建的就是这个。"
 
-# EMAIL相关可以开启邮箱注册登录
+## EMAIL相关可以开启邮箱注册登录(该配置为smtp邮箱设置，并非系统登陆邮箱)
 # EMAIL_SENDER="email@netsound.com 发送者的邮箱"
 # EMAIL_AUTH="SMTP密码"
 # EMAIL_SMTP="smtp.qq.com SMTP host"
 # EMAIL_PORT="587 SMTP 对应端口",
 # EMAIL_LABEL="网音·AiTodo 发送者邮箱显示的名称"
 
-# 腾讯云的授权可以开启手机验证码注册登录
+## 腾讯云的授权可以开启手机验证码注册登录
 # TENCENT_APPID=
 # TENCENT_SECRETID =
 # TENCENT_SECRETKEY  =
@@ -168,7 +169,7 @@ docker exec aitodo bash -c "cd /aitodo/client && yarn"
 
 2.5.1 检查 supervisor 是否正常
 
-    浏览器打开: http://localhost:9001/，是否显示
+    浏览器打开: http://localhost:9001/，是否显示 (账号:admin,密码:111111)
 <img style="height:200px" src="https://netsound.oss-cn-beijing.aliyuncs.com/aitodo/poster/supervisor.png">
 
 2.5.2 检查 Elasticsearch 是否正常
@@ -201,6 +202,7 @@ docker exec aitodo bash -c "supervisorctl reread && supervisorctl update"
 
     测试账号：tester@netsound.co
     测试密码：111111
+    注意：该账号为系统登陆的体验用户账号。
 
 #### 3.2 配置密钥
 
