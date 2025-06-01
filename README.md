@@ -164,6 +164,10 @@ docker run -d `
 ```shell
 docker exec aitodo bash -c "cd /aitodo/client && yarn" 
 ```
+安装MCP的基本依赖
+```shell
+docker exec aitodo bash -c "pip install mcp httpx pydantic"
+```
 
 #### 2.5 检查服务
 

@@ -142,56 +142,6 @@ export default {
                 }));
             }
         },
-        async salary_settlement_update(settlement){
-            await this.$request.post("/client/user/salary_settlement_update", Object.assign({
-                user_id                     : this.item._id,
-                organization_id             : this.organization._id,
-                settlement
-            }));
-        },
-        async toSettlement(){
-            let menu                   = [];
-            for(let t in this.item.salary){
-                let b = this.item.salary[t];
-                if(b.enable && b.price>=0){
-                    menu.push({
-                        after           : 'icon-zhangdan' ,
-                        name            : `${b.price?(b.price.toFixed(2)+'￥'):'免费'}/${this.SALARY_UNIT[t]}`,
-                        description     : ``,
-                        style           : {},
-                        click           :async (item)=>{
-                            let content                     = `支付 ${b.price.toFixed(2)}￥,续期 1${this.SALARY_UNIT[t]} 工作时间，请确定。`;
-                            if (!await this.confirm({title:'确定续期？',content})){
-                                return;
-                            }
-                            let rs                          = await this.$request.post("/client/user/salary_settlement", Object.assign({
-                                user_id                     : this.item._id,
-                                organization_id             : this.organization._id,
-                                salary                      : {
-                                    type                    : t,
-                                    price                   : b.price
-                                }
-                            }));
-                            let {user}                      = rs.data;
-                            Object.assign(this.item,user);
-                            this.$EventBus.emit('user-update', {user});
-                        }
-                    });
-                }
-            }
-            if(menu.length){
-                menu.push({
-                    type                : 'description',
-                    description         : `雇佣成功后，会从当前组织账户中定期扣除费用，若账户余额不足，AI将不在工作。充值后自动恢复工作。`,
-                });
-            } else {
-                menu.push({
-                    type                : 'description',
-                    description         : `该AI还未设置雇佣金额，请等待...`,
-                });
-            }
-            this.$refs.as.show(menu,'续期方式')
-        },
         async saveModel(){
             let post                = Object.assign({
                 group               : 'settings',
@@ -267,20 +217,6 @@ export default {
                     </a-col>
                 </a-row>
                 <a-divider class="line" />
-                <template v-if="item.role=='assistant' && item.creator_organization_id!=organization._id">
-                    <a-descriptions title="雇佣信息" :column="isMobile()?1:2">
-                        <a-descriptions-item label="薪资信息">{{salaryFormat(item.join_info.salary)}}</a-descriptions-item>
-                        <a-descriptions-item label="结算方式">
-                            <a-switch @change="salary_settlement_update" v-model:checked="item.join_info.salary.settlement" checked-children="账户自动扣除" un-checked-children="人工手动结算" checkedValue="auto" unCheckedValue="manual" />
-
-                            <!-- {{item.join_info.salary.settlement=='auto'?'账户自动扣除':'人工手动结算'}} -->
-                        </a-descriptions-item>
-                        <a-descriptions-item label="工作截至" v-if="item.join_info.expired >currentTime()">{{item.join_info.expired}}</a-descriptions-item>
-                        <a-descriptions-item label="工作截至" v-if="item.join_info.expired<=currentTime()"> 已到期，<a @click="toSettlement()">点击续期</a> </a-descriptions-item>
-                        <a-descriptions-item label="加入时间">{{item.join_info.created}}</a-descriptions-item>
-                    </a-descriptions>
-                    <a-divider class="line" />
-                </template>
                 <template v-if="item.role=='assistant' && item.creator_organization_id==organization._id">
                     <a-descriptions title="参数信息" :column="isMobile()?1:2" v-if="item.role=='assistant' && item.creator_organization_id==organization._id">
                         <!-- <a-descriptions-item label="思考深广">{{item.settings.thoughtful}}</a-descriptions-item> -->

@@ -9,7 +9,6 @@ export default {
             PAGESHOW                    : false,
             form_base                   : {},
             form_join                   : {},
-            form_salary                 : {},
             form_settings               : {},
             form_template               : {},
             form_account                : {},
@@ -46,7 +45,6 @@ export default {
             }
             // 只能修改组织内部创建的AI机器人
             if(data.user.role=='assistant' && data.user.creator_organization_id==this.organization._id){
-                segmented_list.push({value:'salary'   ,payload:'薪资设定'});
                 segmented_list.push({value:'settings' ,payload:'参数设置'});
                 segmented_list.push({value:'template' ,payload:'模板设置'});
             }
@@ -73,7 +71,6 @@ export default {
             this.form_join.aliasname    = data.user.join_info.aliasname;
             this.form_join.remark       = data.user.join_info.remark;
 
-            this.form_salary            = data.user.salary;
             this.form_settings          = data.user.settings;
             this.form_template          = data.user.settings;
 
@@ -174,29 +171,6 @@ export default {
                 <a-form-item :wrapper-col="{ offset: col[0], span: col[1] }">
                     <a-button type="primary" html-type="submit" :loading="submit_ing">保存</a-button>
                 </a-form-item>
-            </a-form>
-
-            <a-form v-if="item && segmented=='salary'" class="c-form" :layout="FORM_LAYOUT" :model="form_salary" name="basic" :label-col="{ span: col[0] }" :wrapper-col="{ span: col[1] }" autocomplete="off" @finish="submit">
-                <a-form-item label="按年">
-                    <a-input-number class="number" v-model:value="form_salary.y.price" :min="0" :max="10000" :precision="2" placeholder="按年收费" />
-                    <a-switch v-model:checked="form_salary.y.enable" />
-                </a-form-item>
-                <a-form-item label="按月">
-                    <a-input-number class="number" v-model:value="form_salary.m.price" :min="0" :max="10000" :precision="2" placeholder="按月收费" />
-                    <a-switch v-model:checked="form_salary.m.enable" />
-                </a-form-item>
-                <a-form-item label="按日">
-                    <a-input-number class="number" v-model:value="form_salary.d.price" :min="0" :max="10000" :precision="2" placeholder="按日收费" />
-                    <a-switch v-model:checked="form_salary.d.enable" />
-                </a-form-item>
-                <a-form-item label="按小时">
-                    <a-input-number class="number" v-model:value="form_salary.h.price" :min="0" :max="10000" :precision="2" placeholder="按小时收费" />
-                    <a-switch v-model:checked="form_salary.h.enable" />
-                </a-form-item>
-                <a-form-item :wrapper-col="{ offset: col[0], span: col[1] }">
-                    <a-button type="primary" html-type="submit" :loading="submit_ing">保存</a-button>
-                </a-form-item>
-                <a-form-item :wrapper-col="{ offset: col[0], span: col[1] }"> 平台收取薪资的20%，作为平台服务费。 </a-form-item>
             </a-form>
 
             <a-form v-if="item && segmented=='settings'" class="c-form" :layout="FORM_LAYOUT" :model="form_settings" name="basic" :label-col="{ span: col[0] }" :wrapper-col="{ span: col[1] }" autocomplete="off" @finish="submit">

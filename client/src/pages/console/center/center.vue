@@ -21,8 +21,6 @@ export default {
             {name:'修改密码',path:'/console/center/update',icon:'icon-mima',query:{user_id:this.user._id,tab:'account'}},
         ]
         if(this.organization.user_id == this.user._id){
-            list.push({name:'账户明细',path:'/console/center/payment',icon:'icon-zhangdan',query:{}});
-            list.push({name:'佣金账单',path:'/console/center/bill',icon:'icon-yongjin',query:{}});
             list.push({name:'密钥管理',path:'/console/center/secret',icon:'icon-miyao'});
             list.push({name:'组织设置',path:'/console/center/settings',icon:'icon-setting-gear'});
         }

@@ -171,16 +171,6 @@ class User(ClientController):
         elif  group=='join':
             data                        = await self._check_data(None,validation[group])
             await ou.upset(**data)
-        # 修改收费信息
-        elif  group=='salary': 
-            data                        = {}
-            for key,defv in EUser.DEFAULT_ATTRVALUES['salary'].items():
-                vale                    = post.get(key,defv)
-                data[key]               = {
-                    'enable'            : bool(vale.get('enable',defv.get('enable'))),
-                    'price'             : float(vale.get('price',defv.get('price')) or 0),
-                }
-            await user.upset(salary=data)
         # 修改参数设置
         elif group=='settings' or group=='template':
             data                        = await self._check_data(None,validation['settings'])
@@ -243,8 +233,6 @@ class User(ClientController):
         if isinstance(public, bool):
             query["bool"]["must"].append({'term':{'public':public}})
         _source                         = ["avatar","nickname",'birthday','gender','slogan','role']
-        if not role or role=='assistant':
-            _source.append('salary')
         if creator_organization_id:
             query['bool']['must'].append({'term':{'creator_organization_id':creator_organization_id}})
         liss,total                      = await EUser.search(query=query,_source=_source,track_total_hits=10000,**{'from':skip,'size':size},sort=sort_list)
@@ -269,39 +257,6 @@ class User(ClientController):
                 liss[i]['join_info']    = None
 
         return {'list':liss,'total':total},
-
-         
-    async def salary_settlement(self):
-        post                            = await self.get_post()
-        organization_id                 = post.get('organization_id',self.organization._id)
-        user_id                         = post.get('user_id')
-        salary                          = post.get('salary',{'type':None,'price':None})
-        if not user_id:
-            raise CodeError('为谁结算？')
-        ou                              = await EOrganizationUser.afrom(organization_id=organization_id,user_id=user_id)
-        if not ou:
-            raise CodeError('用户不存在')
-        if not await ou.salary_settlement(strict=True,**salary):
-            raise CodeError('结算失败')
-        data                            = (await self.info())[0]
-        return data,'续期成功'
-    
-    async def salary_settlement_update(self):
-        post                            = await self.get_post()
-        organization_id                 = post.get('organization_id',self.organization._id)
-        user_id                         = post.get('user_id')
-        settlement                      = post.get('settlement')
-        if settlement not in ['manual','auto']:
-            raise CodeError('不支持的结算类型')
-        if not user_id:
-            raise CodeError('为谁结算？')
-        ou                              = await EOrganizationUser.afrom(organization_id=organization_id,user_id=user_id)
-        if not ou:
-            raise CodeError('用户不存在')
-        ou.salary['settlement']         = settlement
-        await ou.upset(salary=ou.salary)
-        return {},'更新成功'
-
 
     async def models(self):
         post                            = await self.get_post()

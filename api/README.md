@@ -1,27 +1,3 @@
-
-1. 更新生产
-cd /www/projects/aitodo/api
-git pull
-cd ../dev-api
-sudo -u www-data ./run.sh development
-
-cd /www/projects/aitodo/api && git pull && cd ../dev-api
-
-1. 开发环境启动
-./run.sh development
-
-2. 生产环境启动
-./run.sh production
-
-
-1. 每个1分钟定时结算AI工资
-/crontab/user/auto_salary_settlement
-
-2. 定时生成月佣金账单
-/crontab/commission/bill_generate
-
-
-
 系统各处模板语法均为Python的jinja2。输出的格式推荐以markdown格式。模板中你的口吻要以  `系统角色` 对智能体说，可以用系统提示作为前缀，加深智能体的控制力。
 
 ## **一、角色才智控制引导模板**

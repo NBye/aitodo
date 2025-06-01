@@ -33,24 +33,6 @@ export default {
 
 
                 },
-                salary                  : {
-                    "y"                 : {
-                        "enable"        : false,
-                        "price"         : 0
-                    },
-                    "m"                 : {
-                        "enable"        : false,
-                        "price"         : 0
-                    },
-                    "d"                 : {
-                        "enable": false,
-                        "price": 0
-                    },
-                    "h"                 : {
-                        "enable"        : false,
-                        "price"         : 0
-                    }
-                }
             },
             preview_avatar              : '',
             steps                       : [
@@ -59,9 +41,6 @@ export default {
                 },
                 {
                     title               : 'AI设置',
-                },
-                {
-                    title               : '收费信息',
                 },
             ],
             step                        : 0,
@@ -182,29 +161,6 @@ export default {
                 <a-form-item label="语言模型" name="textmodel" :rules="[{ required: true,message: '请选择语言模型'}]">
                     <a-cascader v-model:value="form.settings.textmodel" :options="modelsFilter('text')" placeholder="生成对话文案模型" />
                 </a-form-item>
-             
-                <a-form-item :wrapper-col="{ offset: col[0], span: col[1] }">
-                    <a-button type="primary" html-type="submit">下一步</a-button>
-                </a-form-item>
-            </a-form>
-            <a-form v-show="step==2" class="c-form" :layout="FORM_LAYOUT" :model="form.salary" name="basic" :label-col="{ span: col[0] }" :wrapper-col="{ span: col[1] }" autocomplete="off" @finish="submit">
-                <a-form-item label="按年收费">
-                    <a-input-number class="number" v-model:value="form.salary.y.price" :min="0" :max="10000" :precision="2" placeholder="按年收费" />
-                    <a-switch v-model:checked="form.salary.y.enable" />
-                </a-form-item>
-                <a-form-item label="按月收费">
-                    <a-input-number class="number" v-model:value="form.salary.m.price" :min="0" :max="10000" :precision="2" placeholder="按月收费" />
-                    <a-switch v-model:checked="form.salary.m.enable" />
-                </a-form-item>
-                <a-form-item label="按日收费">
-                    <a-input-number class="number" v-model:value="form.salary.d.price" :min="0" :max="10000" :precision="2" placeholder="按日收费" />
-                    <a-switch v-model:checked="form.salary.d.enable" />
-                </a-form-item>
-                <a-form-item label="按小时收费">
-                    <a-input-number class="number" v-model:value="form.salary.h.price" :min="0" :max="10000" :precision="2" placeholder="按小时收费" />
-                    <a-switch v-model:checked="form.salary.h.enable" />
-                </a-form-item>
-
                 <a-form-item :wrapper-col="{ offset: col[0], span: col[1] }">
                     <a-button type="primary" html-type="submit" :loading="submit_ing">提交</a-button>
                 </a-form-item>

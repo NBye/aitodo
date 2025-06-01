@@ -81,8 +81,7 @@ class EOrganizationUser(ESModel):
             attrs['expired']            = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         # 非雇佣的默认测试时间
         elif user.role == 'assistant' and not salary: # 默认免费用
-            date                        = datetime.now() + relativedelta(days=7)
-            attrs['expired']            = date.strftime("%Y-%m-%d %H:%M:%S")
+            attrs['expired']            = None
         ou                              = await super().create(refresh=refresh,virtual=virtual,**attrs)
         try:
             if user.role == 'assistant' and ou.salary['price']>0:

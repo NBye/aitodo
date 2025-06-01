@@ -22,9 +22,9 @@ class EOrganization(ESModel):
         'balance'                       : 0.0,
         'authentication'                : {},
         'settings'                      : {
-            "user_limit"                : 10,
+            "user_limit"                : 200,
             'embedmodel'                : ['',''],
-            "storage_limit"             : 8,
+            "storage_limit"             : 1024.0,
             "join_code_enabled"         : False,
             "join_code_value"           : '',
             "join_invite_enabled"       : True,

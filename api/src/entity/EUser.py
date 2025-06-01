@@ -34,7 +34,7 @@ class EUser(ESModel):
                 'price'                 : 0.0,
             },
             'h'                         : { 
-                'enable'                : False,
+                'enable'                : True,
                 'price'                 : 0.0,
             },
         },
@@ -52,7 +52,7 @@ class EUser(ESModel):
             'max_iterations'            : 1,
             'message_size'              : 20,
             'thoughtful'                : 5,
-            'storage_limit'             : 2.0,
+            'storage_limit'             : 1024.0,
 
             'definition'                : '',
             'template_related_me'       : '',

@@ -24,13 +24,15 @@ async def start_consumer(consumer_id):
                 prev_time_minute        = prev_time.replace(second=0, microsecond=0)
                 now_minute              = now.replace(second=0, microsecond=0)
                 if prev_time_minute == now_minute:
+                    task.success        = task.success+1
                     await task.consumer(consumer_id=consumer_id)
                 next_time               = cron.get_next(datetime.datetime)
                 next_time               = next_time.strftime("%Y-%m-%d %H:%M:%S")
-                await task.upset(status='pending',status_description='', success=task.success+1,schedule_time=next_time,refresh=True)
+                await task.upset(status='pending',status_description='', success=task.success,schedule_time=next_time,refresh=True)
             else:
+                task.success            = task.success+1
                 await task.consumer(consumer_id=consumer_id)
-                await task.upset(status='completed',status_description='', success=task.success+1)
+                await task.upset(status='completed',status_description='', success=task.success)
         except Exception as e:
             print('consumer error:',traceback.format_exc())
             await task.upset(status='failed',status_description=str(e),failure=task.failure+1)

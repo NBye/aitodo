@@ -229,16 +229,6 @@ const router = createRouter({
                             meta: { title: '我的' },
                         },
                         {
-                            path: 'payment',
-                            component: () => import(`../pages/console/center/payment.vue`),
-                            meta: { title: '账户明细' },
-                        },
-                        {
-                            path: 'bill',
-                            component: () => import(`../pages/console/center/bill.vue`),
-                            meta: { title: '佣金账单' },
-                        },
-                        {
                             path: 'update',
                             component: () => import(`../pages/console/personnel/edit.vue`),
                             meta: { title: '我的' },

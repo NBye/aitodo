@@ -197,28 +197,15 @@ export default {
                 </div>
                 <a-divider class="line" />
                 <a-row class="info">
-                    <a-col :span="6" class="tal"><p>组内成员</p></a-col>
-                    <a-col :span="6"><p>账户余额</p></a-col>
-                    <a-col :span="6"><p>存储额度</p></a-col>
-                    <a-col :span="6" class="tar"><p>认证状态</p></a-col>
+                    <a-col :span="12" class="tal"><p>组内成员</p></a-col>
+                    <a-col :span="12"><p>存储额度</p></a-col>
                 </a-row>
                 <a-row class="info">
-                    <a-col :span="6" class="tal">
+                    <a-col :span="12" class="tal">
                         <p>{{user_count}}/{{item.settings.user_limit}}</p>
                     </a-col>
-                    <a-col :span="6">
-                        <p class="no-select" @click="toRecharge()">
-                            ￥{{(item.balance*1).toFixed(2)}}
-                            <a-button type="link">
-                                <i class="iconfont icon-chongzhi"></i>
-                            </a-button>
-                        </p>
-                    </a-col>
-                    <a-col :span="6">
+                    <a-col :span="12">
                         <p>{{byteFormat(storage_count)}}/{{item.settings.storage_limit}}GB</p>
-                    </a-col>
-                    <a-col :span="6" class="tar">
-                        <p>未认证</p>
                     </a-col>
                 </a-row>
                 <a-divider class="line" />

@@ -62,18 +62,6 @@ export default {
             }).finally(()=>this.search_ing = false );
             data.list.forEach((item)=>{
                 item.checked            = false;
-                let salary_list         = [];
-                for(let t of ['y','m','d','h']){
-                    let salary          = item.salary?item.salary[t]:null;
-                    if(salary && salary.enable && salary.price>=0){
-                        if (salary.price>0){
-                            salary_list.push(`${salary.price.toFixed(2)}￥/${this.SALARY_UNIT[t]}`)
-                        }else{
-                            salary_list.push(`免费/${this.SALARY_UNIT[t]}`)
-                        }
-                    }
-                }
-                item.salary_list        = salary_list;
             });
             if (this.query.skip==0){
                 this.list               = data.list;
@@ -123,7 +111,6 @@ export default {
                                     <template #title>
                                         <div class="title">
                                             <div>{{ item.nickname }}</div>
-                                            <div>{{`${item.salary_list.length?item.salary_list[0]:''}`}}</div>
                                         </div>
                                     </template>
                                     <template #avatar>

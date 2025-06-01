@@ -16,7 +16,7 @@ PROT                                    = os.getenv('AITODO_PROT')              
 
 QUART_ENV                               = os.getenv('QUART_ENV')                        or 'production'
 
-HOST                                    = os.getenv('AITODO_HOST')                      or 'http://localhost:6200'
+HOST                                    = os.getenv('AITODO_HOST')                      or 'http://localhost:6100'
 
 # /crontab/ 下API 授权IP
 ALLOWED_IP                              = os.getenv('ALLOWED_IP')                       or ''

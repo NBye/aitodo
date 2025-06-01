@@ -56,7 +56,6 @@ class Organization(ClientController):
                 ('gender',      [2,2],          None,       '性别为 xx 或 xy'),
                 ('slogan',      [0,200],        None,       '口号需要200个字符以内'),
                 ('introduction',[0,20000],      None,       '简介不得超过两万个字符'),
-                ('salary',      [0,20000],      None,       '收费信息包过大'),
                 ('settings',    [0,20000],      None,       'AI设置数据过大'),
         ]
         data                            = await self._check_data(None,validation)
@@ -200,21 +199,7 @@ class Organization(ClientController):
         if count>=organization.settings["user_limit"]:
             raise CodeError(f'组织最多可以有个{organization.settings["user_limit"]}位成员')
         user                            = await EUser.afrom(_id=user_id,_must=True)
-        if user.role == 'assistant':
-            salary                      = {'settlement':'auto',**post.get('salary',{})}
-            salard                      = user.salary[salary['type']]
-            if salary['price'] < 0:
-                raise CodeError('薪酬数据错误')
-            if not salard['enable']:
-                raise CodeError('当前薪酬方式以关闭，请重试。')
-            if float(salard['price'])!=float(salary['price']):
-                raise CodeError('当前薪酬有所变化，请重试。',data={
-                    'settle_salary' :salary['price'],
-                    'settig_salary' :salard['price'],
-                })
-        else:
-            salary                      = None
-        await organization.join(user,f'由 {self.user.nickname} 邀请加入',salary=salary)
+        await organization.join(user,f'由 {self.user.nickname} 邀请加入')
         return {'organization':organization},
 
     async def leave(self):
