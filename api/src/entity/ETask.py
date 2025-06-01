@@ -115,6 +115,8 @@ class ETask(ESModel):
                 "conflicts"             : "proceed"
             }
             result                      = await es.update_by_query(index=indexname, body=body, refresh=True)
+            print(current_time)
+            print(result)
             if result.get("updated", 0)==0:
                 yield None
                 await asyncio.sleep(0.1)
