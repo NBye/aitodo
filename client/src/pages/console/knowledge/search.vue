@@ -248,7 +248,7 @@ export default {
                         <a-upload v-if="!uploading" name="file" :showUploadList="false" :action="''" :before-upload="beforeUpload" :max-count="1" :custom-request="uploadSubmit" accept=".docx,.pdf">
                             <a-empty :description="search_ing?'正在查询数据...':'暂无知识数据，点击添加。'"></a-empty>
                         </a-upload>
-                        <a-empty v-lese :description="search_ing?'正在查询数据...':'正在上传中...'"></a-empty>
+                        <a-empty v-else :description="search_ing?'正在查询数据...':'正在上传中...'"></a-empty>
                     </div>
                     <template #renderItem="{ item }">
                         <a-list-item>
