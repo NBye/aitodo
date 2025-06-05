@@ -7,7 +7,7 @@ logs
 cache
 build
 
-data/es
+data/es/*
 
 upload/
 temp/

@@ -22,7 +22,7 @@ async def generate(model,prompt=None,messages=[],images=None, stream=False, suff
     if prompt==None: 
         prompt                          = []
         for m in messages:
-            utext,stext                 = m.embedded(user)
+            utext,stext                 = await m.embedded(user)
             prompt.append(utext)
             if stext:
                 prompt.append(stext)

@@ -337,8 +337,9 @@ class EChat(ESModel):
             "messages"                  : messages
         }
         async for data,_ in user.execute_model('Generate.generate',**options):
-            await self.upset(remark=data['content'])
-            return data['content']
+            text                        = re.sub(r"<think>.*?</think>\s*", "", data['content'], flags=re.DOTALL)
+            await self.upset(remark=text)
+            return text
 
     async def messages(self,**options)->(list[EChatMessage],int):
         messages,count                  = await EChatMessage.search(**options)
