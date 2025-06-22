@@ -391,10 +391,10 @@ class EUser(ESModel):
                 user                    = await self.to_safe_dict(),
             )
             async for data,tokens in self.execute_model('Generate.generate',prompt=prompt,stream=False,temperature=0):
-                understand              = data['content']
+                understand              += data['content']
         if understand:
             await message.upset(understand=understand)
-        return understand
+        return understand or message.content
 
     # 执行模型
     async def execute_model(self,module,strict=False,**options):
